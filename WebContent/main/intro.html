@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, user-scalable=no">
+<title>Bootstrap 101 Template</title>
+<link href="../css/bootstrap.css" rel="stylesheet">
+<link href="../css/bootstrap-theme.css" rel="stylesheet">
+<link href="../css/custom2.css" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/main.css" />
+<!-- font awesome -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
+
+
+<style>
+body {
+	padding-top: 50px;
+}
+
+footer {
+	background: #333;
+	padding-top: 20px;
+	text-align: center;
+}
+
+footer a:hover {
+	color: #FFF;
+}
+
+#footer>ul {
+	padding: 0;
+	text-align: center;
+}
+
+#footer>ul.icons li {
+	display: inline-flex;
+	padding: 0 1rem 0 0;
+}
+
+#footer>ul.icons li:last-child {
+	padding-right: 0;
+}
+
+footer>.copyright {
+	color: #bbb;
+	font-size: 0.9rem;
+	margin: 0 0 2rem 0;
+	padding: 0;
+	text-align: center;
+}
+
+.fa-themeisle {
+	position: relative;
+	bottom: 5px;
+	color: rgb(000, 204, 102);
+}
+
+.room {
+	padding-top: 10px;
+	padding-bottom: 30px
+}
+
+.title {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.roomText h3 {
+	margin-top: 10px;
+}
+
+.modal-dialog {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+}
+
+.input-group {
+	display: block;
+}
+
+.roomContent {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.roomImg .img-rounded {
+	width: 100%;
+	height: 250px;
+}
+.thumbnail { border-radius: 0; position: relative; z-index: 1; border: 2px solid #fff; outline: 1px solid #ccc}     
+.thumbnail:hover { border: 2px solid rgb(000, 204, 102); outline: 0; }
+.thumbnail a:hover { text-decoration: none}
+.thumbnail:hover img{-webkit-animation:movetop 0.5s; animation: movetop 0.5s; }
+     @-webkit-keyframes movetop {
+          from {margin-top:0;}
+          to {margin-top:-4px;}
+      }
+      @keyframes movetop {
+          from {margin-top:0;}
+          to {margin-top:-4px;}
+
+
+</style>
+</head>
+<body>
+	<div class="container">
+		<header>
+			<!-- nav bar 부분 -->
+			<nav class="navbar navbar-default" role="navigation">
+				<!-- navbar-fixed-top 주면 맨위로감 padding 무시-->
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<!-- 여기를 컨테이너 디브로 한번 더 감싸줌 -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target=".navbar-ex1-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<!-- 메뉴버튼 줄  -->
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="main.html"><i
+						class="fab fa-themeisle fa-2x"></i></a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<!-- 클릭시 나타나는 // data-target에 쓰인 이름이랑 일치  -->
+				<div class="collapse navbar-collapse navbar-ex1-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="main.html"> Home </a></li>
+						<li><a href="notice.html"> 공지사항 </a></li>
+						<li class="active"><a href="intro.html"> 펜션 소개 </a></li>
+						<li><a href="reserve.html"> 예약 </a></li>
+						<li><a href="board.html"> 문의 </a></li>
+						<li><a href="guestbook.html"> 방명록 </a></li>
+						<li><a href="location.html"> 오시는 길 </a></li>
+					</ul>
+					<div class="navbar-form navbar-right ">
+						<button type="submit" class="btn btn-default" data-toggle="modal"
+							data-target="#loginModal">로그인</button>
+						<button type="submit" class="btn btn-default" data-toggle="modal"
+							data-target="#joinModal">회원가입</button>
+					</div>
+				</div>
+				<!-- /.navbar-collapse -->
+			</nav>
+			<!-- // nav bar 부분 끝 -->
+
+			<!-- 로그인 Modal -->
+			<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+							</button>
+							<h4 class="modal-title" id="myModalLabel">로그인</h4>
+						</div>
+						<div class="modal-body">
+							<div class="input-group">
+								<span class="input-group-addon"> <span
+									class="glyphicon glyphicon-user"> </span>
+								</span> <input type="text" class="form-control" placeholder="아이디">
+							</div>
+							<br>
+							<div class="input-group">
+								<span class="input-group-addon"> <span
+									class="glyphicon glyphicon-lock"></span>
+								</span> <input type="password" class="form-control" placeholder="비밀번호">
+							</div>
+						</div>
+
+						<div class="input-group" style="margin-left: 20px">
+							<input type="checkbox" id="jb-checkbox"
+								class="custom-control-input"> <label
+								class="custom-control-label" for="jb-checkbox">로그인 유지</label>
+							<div class="find">
+								<a href="#"> 아이디 찾기 </a> <a href="#"> 비밀번호 찾기 </a>
+							</div>
+						</div>
+
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary">로그인</button>
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">닫기</button>
+
+						</div>
+					</div>
+					<!-- 모달 콘텐츠 -->
+				</div>
+				<!-- 모달 다이얼로그 -->
+			</div>
+			<!-- 모달 전체 윈도우 -->
+
+			<!-- 회원가입 Modal -->
+			<div class="modal fade" id="joinModal" tabindex="-1" role="dialog"
+				aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+							</button>
+							<h4 class="modal-title" id="myModalLabel">회원가입</h4>
+						</div>
+						<div class="modal-body">
+							<form role="form">
+								<div class="form-group">
+									<label>아이디</label>
+									<div class="input-group">
+										<span class="input-group-addon"> <span
+											class="glyphicon glyphicon-user"> </span>
+										</span> <input type="text" id="inputId" class="form-control"
+											placeholder="아이디">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label>비밀번호</label>
+									<div class="input-group">
+										<span class="input-group-addon"> <span
+											class="glyphicon glyphicon-lock"> </span>
+										</span> <input type="password" id="inputPassword"
+											class="form-control" placeholder="비밀번호">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label>비밀번호 확인</label>
+									<div class="input-group">
+										<span class="input-group-addon"> <span
+											class="glyphicon glyphicon-lock"> </span>
+										</span> <input type="text" id="inputPasswordCheck"
+											class="form-control" placeholder="아이디">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label>성함</label>
+									<div class="input-group">
+										<span class="input-group-addon"> <span
+											class="glyphicon glyphicon-user"> </span>
+										</span> <input type="text" id="inputName" class="form-control"
+											placeholder="이름을 입력하세요.">
+									</div>
+								</div>
+
+								<div class="form-group">
+									<label>나이</label>
+									<div class="input-group">
+										<span class="input-group-addon"> <span
+											class="glyphicon glyphicon-user"> </span>
+										</span> <input type="number" id="inputAge" class="form-control"
+											min="0" max="150">
+									</div>
+								</div>
+								<div class="form-group">
+									<label>성별</label>
+									<div class="input-group">
+										<span class="input-group-addon"> <span
+											class="glyphicon glyphicon-user"> </span>
+										</span> <input type="text" id="inputGender" class="form-control"
+											placeholder="이름을 입력하세요.">
+									</div>
+								</div>
+								<div class="form-group">
+									<label>이메일</label>
+									<div class="input-group">
+										<span class="input-group-addon"> <span
+											class="glyphicon glyphicon-envelope"> </span>
+										</span> <input type="email" id="inputMail" class="form-control"
+											placeholder="이메일을 입력하세요.">
+									</div>
+								</div>
+								<div class="form-group">
+									<label>주소</label>
+									<div class="input-group">
+										<span class="input-group-addon"> <span
+											class="glyphicon glyphicon-home"> </span>
+										</span> <input type="email" id="inputAddress" class="form-control"
+											placeholder="이메일을 입력하세요.">
+									</div>
+								</div>
+								<div class="form-group">
+									<label>집 전화번호</label>
+									<div class="input-group">
+										<span class="input-group-addon"> <span
+											class="glyphicon glyphicon-phone-alt"> </span>
+										</span> <input type="email" id="inputTel" class="form-control"
+											placeholder="집전화번호를 입력하세요.">
+									</div>
+								</div>
+								<div class="form-group">
+									<label>휴대전화</label>
+									<div class="input-group">
+										<span class="input-group-addon"> <span
+											class="glyphicon glyphicon-earphone"> </span>
+										</span> <input type="email" id="inputMtel" class="form-control"
+											placeholder="휴대전화번호를 입력하세요.">
+									</div>
+								</div>
+
+							</form>
+						</div>
+						<div class="modal-footer">
+							<div class="form-group text-center">
+								<button type="submit" id="join-submit" class="btn btn-primary">
+									회원가입<i class="fa fa-check spaceLeft"></i>
+								</button>
+								<button type="submit" class="btn btn-warning"
+									data-dismiss="modal">
+									가입취소<i class="fa fa-times spaceLeft"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+					<!-- 모달 콘텐츠 -->
+				</div>
+				<!-- 모달 다이얼로그 -->
+			</div>
+			<!-- 모달 전체 윈도우 -->
+		</header>
+
+		<div class="row title">
+			<div class="col-md-12">
+				<h2>객실 안내</h2>
+			</div>
+		</div>
+	
+			<div class="row room thumbnail">
+			
+			<div class="col-md-4  roomImg">
+				<img src="../img/room1.jpg" alt="room1" class="img-rounded">
+			</div>
+			<div class="col-md-8 roomText">
+				<h3>ROOM 1</h3>
+				<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+					enim ad minim veniam, quis nostrud exercitation ullamco laboris
+					nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+					culpa qui officia deserunt mollit anim id est laborum."</p>
+				<button type="submit" class="btn btn-default" data-toggle="modal"
+					data-target="#room1Modal">자세히 보기</button>
+					
+			</div>
+		
+		</div>
+		
+		<div class="row room thumbnail">
+			<div class="col-md-4 roomImg">
+				<img src="../img/room1.jpg" alt="room1" class="img-rounded">
+			</div>
+			<div class="col-md-8 roomText">
+				<h3>ROOM 2</h3>
+				<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+					enim ad minim veniam, quis nostrud exercitation ullamco laboris
+					nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+					culpa qui officia deserunt mollit anim id est laborum."</p>
+				<a href="#" class="btn btn-primary" role="button"
+					data-toggle="modal" data-target="#room1Modal"> 자세히 보기 </a>
+			</div>
+
+		</div>
+		<div class="row room thumbnail">
+			<div class="col-md-4 roomImg">
+				<img src="../img/room1.jpg" alt="room1" class="img-rounded">
+			</div>
+			<div class="col-md-8 roomText">
+				<h3>ROOM 3</h3>
+				<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+					enim ad minim veniam, quis nostrud exercitation ullamco laboris
+					nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+					culpa qui officia deserunt mollit anim id est laborum."</p>
+				<a href="#" class="btn btn-primary" role="button"> 자세히 보기 </a>
+			</div>
+
+		</div>
+		<div class="row room thumbnail">
+			<div class="col-md-4 roomImg">
+				<img src="../img/room1.jpg" alt="room1" class="img-rounded">
+			</div>
+			<div class="col-md-8 roomText">
+				<h3>ROOM 4</h3>
+				<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+					enim ad minim veniam, quis nostrud exercitation ullamco laboris
+					nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+					culpa qui officia deserunt mollit anim id est laborum."</p>
+				<a href="#" class="btn btn-primary" role="button"> 자세히 보기 </a>
+			</div>
+
+		</div>
+		<div class="row room thumbnail">
+			<div class="col-md-4 roomImg">
+				<img src="../img/room1.jpg" alt="room1" class="img-rounded">
+			</div>
+			<div class="col-md-8 room1Text">
+				<h3>ROOM 5</h3>
+				<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+					do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+					enim ad minim veniam, quis nostrud exercitation ullamco laboris
+					nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+					reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+					pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+					culpa qui officia deserunt mollit anim id est laborum."</p>
+				<a href="#" class="btn btn-primary" role="button"> 자세히 보기 </a>
+			</div>
+
+		</div>
+
+
+
+
+		<!-- 푸터 -->
+		<footer id="footer">
+			<ul class="icons">
+				<li><a href="#" class="fab fa-twitter fa-2x"></a></li>
+				<li><a href="#" class="fab fa-facebook-square fa-2x"></a></li>
+				<li><a href="#" class="fab fa-instagram fa-2x"></a></li>
+				<li><a href="#" class="far fa-envelope fa-2x "></a></li>
+			</ul>
+			<div class="copyright">&copy; Untitled. All rights reserved.</div>
+		</footer>
+
+		<!-- 푸터 끝 -->
+	</div>
+	<!-- 컨테이너 끝 -->
+
+
+
+
+	<!-- 로그인 Modal -->
+	<div class="modal fade" id="room1Modal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">ROOM 1</h4>
+				</div>
+				<div class="modal-body">
+
+					<!--  캐러셀 시작 -->
+					<div id="carousel-example-generic" class="carousel slide">
+						<!-- Indicators -->
+						<ol class="carousel-indicators">
+							<li data-target="#carousel-example-generic" data-slide-to="0"
+								class="active"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+						</ol>
+						<!-- Carousel items -->
+						<div class="carousel-inner">
+							<div class="item active">
+								<img src="../img/slide01.jpg" alt="First slide">
+							</div>
+							<div class="item">
+								<img src="../img/slide02.jpg" alt="Second slide">
+							</div>
+							<div class="item">
+								<img src="../img/slide03.jpg" alt="Third slide">
+							</div>
+						</div>
+						<!-- Controls -->
+						<a class="left carousel-control" href="#carousel-example-generic"
+							data-slide="prev"> <span
+							class="glyphicon glyphicon-chevron-left"></span>
+						</a> <a class="right carousel-control"
+							href="#carousel-example-generic" data-slide="next"> <span
+							class="glyphicon glyphicon-chevron-right "></span>
+						</a>
+					</div>
+					<!-- 캐러셀 끝 -->
+					<div class="roomContent">"Lorem ipsum dolor sit amet,
+						consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+						labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+						nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate
+						velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+						occaecat cupidatat non proident, sunt in culpa qui officia
+						deserunt mollit anim id est laborum."</div>
+
+				</div>
+
+				<div class="input-group" style="margin-left: 20px">
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary">예약하기</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+					</div>
+				</div>
+			</div>
+			<!-- 모달 콘텐츠 -->
+		</div>
+		<!-- 모달 다이얼로그 -->
+	</div>
+	<!-- 모달 전체 윈도우 -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="../js/bootstrap.min.js"></script>
+
+	<script src="../js/jquery-3.5.1.js"></script>
+	<script src="../js/bootstrap.js"></script>
+
+</body>
+</html>
